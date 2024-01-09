@@ -2,16 +2,22 @@ import java.util.Scanner;
 
 public class StepTracker {
     Scanner scanner;
+
     MonthData[] monthToData = new MonthData[12];
+
     MonthData monthData = new MonthData();
+
     Coverter converter = new Coverter();
+
     int goalByStepsPerDay = 10000;
+
     StepTracker(Scanner scan) {
         scanner = scan;
         for (int i = 0; i < monthToData.length; i++) {
             monthToData[i] = new MonthData();
         }
     }
+
     void changeStepGoal() {
         System.out.println("Сейчас ваша ежедневная цель: 10000 шагов");
         System.out.println("Введите новую ежедневную цель шагов");
@@ -23,6 +29,7 @@ public class StepTracker {
             return;
         }
     }
+
     void addNewNumbersStepsPerDay() {
         System.out.println("Введите номер месяца (от 1 до 12) ");
         int month = scanner.nextInt();
@@ -45,6 +52,7 @@ public class StepTracker {
         MonthData monthData = monthToData[month - 1];
         monthData.days[days - 1] = step;
     }
+
     void printStatistic() {
         System.out.println("Введите номер месяца, по которому Вы хотите увидеть статистику");
         int month = scanner.nextInt();
