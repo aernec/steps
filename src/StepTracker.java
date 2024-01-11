@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class StepTracker {
+
     Scanner scanner;
 
     MonthData[] monthToData = new MonthData[12];
 
-    MonthData monthData = new MonthData();
 
     Coverter converter = new Coverter();
 
@@ -26,7 +26,6 @@ public class StepTracker {
             goalByStepsPerDay = customGoalByStepsPerDay;
         } else {
             System.out.println("Вы ввели неверное количество шагов!");
-            return;
         }
     }
 
@@ -56,6 +55,7 @@ public class StepTracker {
     void printStatistic() {
         System.out.println("Введите номер месяца, по которому Вы хотите увидеть статистику");
         int month = scanner.nextInt();
+        MonthData monthData = monthToData[month - 1];
         int sumSteps = monthData.sumStepsFromMonth();
         System.out.println("Количество пройденных шагов по дням:");
         monthData.printDaysAndStepsFromMonth();
@@ -72,6 +72,4 @@ public class StepTracker {
         System.out.println("Лючшая серия:");
         monthData.bestSeries(goalByStepsPerDay);
     }
-
-
 }
