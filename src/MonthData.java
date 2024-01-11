@@ -14,6 +14,9 @@ public class MonthData {
              sumSteps += days[i];
          }
          System.out.println(sumSteps);
+         // Метод нахождения сумму не должен заниматься выводом на экран
+         // Классы и методы должны выполнять только одну задачу
+         // Таким образом не выполняются принципы SOLID
          return sumSteps;
      }
 
@@ -25,6 +28,7 @@ public class MonthData {
              }
          }
          System.out.println(maxSteps);
+         // Аналогично про принципы SOLID
          return maxSteps;
      }
 
@@ -36,19 +40,25 @@ public class MonthData {
              } else {
                  finalSeries -= finalSeries;
              }
+             // Лучшая серия находится неверно
          }
          System.out.println(finalSeries);
+         // Аналогично про принципы SOLID
          return finalSeries;
      }
 
      int averageNumberOfSteps() {
          int averageNumberOfSteps = 0;
          for (int i = 0; i < days.length; i++) {
+             // Не очень хорошо, что переменная называется среднее количество шагов, а хранит в себе сумму
+             // Создавай новые переменные
              averageNumberOfSteps += days[i];
          }
 
          averageNumberOfSteps = averageNumberOfSteps % 30;
+         // Аналогично про деление
          System.out.println(averageNumberOfSteps);
+         // Аналогично про принципы SOLID
          return averageNumberOfSteps;
      }
 }

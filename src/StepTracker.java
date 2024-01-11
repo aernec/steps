@@ -5,7 +5,7 @@ public class StepTracker {
     Scanner scanner;
 
     MonthData[] monthToData = new MonthData[12];
-
+    // Старайся избавляться от лишних отступов
 
     Coverter converter = new Coverter();
 
@@ -22,6 +22,15 @@ public class StepTracker {
         System.out.println("Сейчас ваша ежедневная цель: 10000 шагов");
         System.out.println("Введите новую ежедневную цель шагов");
         int customGoalByStepsPerDay = scanner.nextInt();
+
+//        Я бы сделал так
+//        if (customGoalByStepsPerDay <= 0) {
+//            System.out.println("Вы ввели неверное количество шагов!");
+//            return;
+//        }
+//        goalByStepsPerDay = customGoalByStepsPerDay;
+
+
         if (customGoalByStepsPerDay > 0) {
             goalByStepsPerDay = customGoalByStepsPerDay;
         } else {
@@ -49,6 +58,7 @@ public class StepTracker {
             return;
         }
         MonthData monthData = monthToData[month - 1];
+        // Есть баг с записыванием новых шагов
         monthData.days[days - 1] = step;
     }
 
@@ -62,14 +72,19 @@ public class StepTracker {
         System.out.println("Общее количество шагов пройденых за месяц:");
         System.out.println(sumSteps);
         System.out.println("Максимальное пройденное количество шагов за месяц:");
+        // Необходимо значение, которое возвращает метод выводить на экран
         monthData.maxSteps();
-        System.out.println("Среднее количество шагов за месяц:");// эту штуку я полностью сама сделала тк в презентации ее не было
+        System.out.println("Среднее количество шагов за месяц:");
+        // Необходимо значение, которое возвращает метод выводить на экран
         monthData.averageNumberOfSteps();
         System.out.println("Пройденная дистанция(в км):");
+        // Необходимо значение, которое возвращает метод выводить на экран
         converter.convertToKm(sumSteps);
         System.out.println("Количество сожжённых килокалорий:");
+        // Необходимо значение, которое возвращает метод выводить на экран
         converter.convertStepsToKilokalories(sumSteps);
         System.out.println("Лючшая серия:");
+        // Необходимо значение, которое возвращает метод выводить на экран
         monthData.bestSeries(goalByStepsPerDay);
     }
 }
