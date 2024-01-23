@@ -4,10 +4,9 @@ class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         StepTracker stepTracker = new StepTracker(scanner);
-        // Так как сканнер далее нигде не используется в методе main,
-        // чтобы не загромождать код, можно сделать чуть элегантнее в одну строку
-        // StepTracker stepTracker = new StepTracker(new Scanner(System.in));
+
         while (true) {
             printMenu();
             int command = scanner.nextInt();
@@ -16,17 +15,14 @@ class Main {
             } else if (command == 2) {
                 stepTracker.changeStepGoal();
             } else if (command == 3) {
-            stepTracker.printStatistic();
+                stepTracker.printStatistic();
             } else if (command == 4) {
-                break;
-                // Хотелось бы увидеть какое-то сообщение в консоли о том,
-                // что произошел выход из программы
-                // И здесь все-таки лучше использовать ретерн, чтобы полностью завершать программу
-                // хотя в данном случае после цикла ничего нет, так и произойдет
+                System.out.println("Выход");
+                return;
             } else {
                 System.out.println("Такой команды пока нет(");
             }
-            // Его еще можно  добавить здесь
+
         }
     }
 
