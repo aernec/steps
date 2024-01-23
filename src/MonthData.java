@@ -35,13 +35,13 @@ public class MonthData {
              } else {
                     if (maxSeries < finalSeries) {
                         maxSeries = finalSeries;
-                        finalSeries = 0;
                     }
-                    else {
-                        finalSeries = 0;
-                    }
+                    finalSeries = 0;
              }
 
+         }
+         if (finalSeries > maxSeries) {
+             maxSeries = finalSeries;
          }
          return maxSeries;
      }
